@@ -1,0 +1,19 @@
+{
+  "name": "@tmplates/node",
+  "version": "1.0.1",
+  "keywords": ["genrate", "template", "node", "scaffold"],
+  "description": "Nodejs project template config file",
+  "author": "2046",
+  "license": "MIT",
+  "template": {
+    "main": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmplates/node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tmplates/node/issues"
+  },
+  "homepage": "https://github.com/tmplates/node#readme"
+}
