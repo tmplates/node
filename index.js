@@ -23,11 +23,11 @@ module.exports = async function(prompts) {
       ts: ts.value,
       dirs: ['src'],
       files: ts.value ? [
-        ['src/index.ts', fs.readFileSync(path.join(__dirname, 'files/src/index.ts'))],
-        ['test/hello.test.ts', fs.readFileSync(path.join(__dirname, 'files/test/hello.test.ts'))]
+        ['src/index.ts', fs.readFileSync(resolve('files/src/index.ts'))],
+        ['test/hello.test.ts', fs.readFileSync(resolve('files/test/hello.test.ts'))]
       ] : [
-        ['src/index.js', fs.readFileSync(path.join(__dirname, 'files/src/index.js'))],
-        ['test/hello.test.js', fs.readFileSync(path.join(__dirname, 'files/test/hello.test.js'))]
+        ['src/index.js', fs.readFileSync(resolve('files/src/index.js'))],
+        ['test/hello.test.js', fs.readFileSync(resolve('files/test/hello.test.js'))]
       ],
       lint: ['stylelint', 'eslint', 'commitlint']
     }
@@ -36,10 +36,14 @@ module.exports = async function(prompts) {
       ts: ts.value,
       dirs: ['src'],
       files: ts.value ? [
-        ['src/index.ts', fs.readFileSync(path.join(__dirname, 'files/src/index.ts'))]
+        ['src/index.ts', fs.readFileSync(resolve('files/src/index.ts'))]
       ] : [
-        ['src/index.js', fs.readFileSync(path.join(__dirname, 'files/src/index.js'))]
+        ['src/index.js', fs.readFileSync(resolve('files/src/index.js'))]
       ]
     }
   }
+}
+
+function resolve(filePath) {
+  return path.join(__dirname, filePath)
 }
