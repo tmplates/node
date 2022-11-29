@@ -9,37 +9,26 @@ module.exports = async function(prompts) {
     message: 'Create a library project?',
   })
 
-  const ts = await prompts({
-    name: 'value',
-    initial: true,
-    type: 'confirm',
-    message: 'Use the TypeScript language?',
-  })
-
   if (lib.value) {
     return {
+      ts: true,
       lib: true,
       test: true,
-      ts: ts.value,
       dirs: ['src'],
-      files: ts.value ? [
+      files: [
         ['src/index.ts', fs.readFileSync(resolve('files/src/index.ts'))],
         ['test/hello.test.ts', fs.readFileSync(resolve('files/test/hello.test.ts'))]
-      ] : [
-        ['src/index.js', fs.readFileSync(resolve('files/src/index.js'))],
-        ['test/hello.test.js', fs.readFileSync(resolve('files/test/hello.test.js'))]
       ],
       lint: ['stylelint', 'eslint', 'commitlint']
     }
   } else {
     return {
-      ts: ts.value,
+      ts: true,
       dirs: ['src'],
-      files: ts.value ? [
+      files: [
         ['src/index.ts', fs.readFileSync(resolve('files/src/index.ts'))]
-      ] : [
-        ['src/index.js', fs.readFileSync(resolve('files/src/index.js'))]
-      ]
+      ],
+      lint: ['stylelint', 'eslint', 'commitlint']
     }
   }
 }
