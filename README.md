@@ -18,14 +18,14 @@ This is a template configuration file that needs to be used with the [genrate](h
 ## Usage
 
 ```bash
-gen use @tmplates/node project
+gen use @tmplates/node [directory-name]
 ```
 
 or
 
 ```bash
-mkdir project
-cd project
+mkdir <directory-name>
+cd <directory-name>
 gen use @tmplates/node
 ```
 
